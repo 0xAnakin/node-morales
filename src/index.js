@@ -1,7 +1,9 @@
 const express = require('express');
 const router = require('./lib/router');
 
+
 const PORT = process.env.PORT || 3000;
+const day_in_ms = 24 * 60 * 60 * 1000;
 const app = express();
 
 app.use(express.json());
@@ -12,7 +14,7 @@ const server = app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}.`);
 });
 
-server.timeout = 31000
-server.requestTimeout = 5000;
-server.headersTimeout = 30000
-server.keepAliveTimeout = 29900;
+server.timeout = day_in_ms
+server.requestTimeout = day_in_ms;
+server.headersTimeout = day_in_ms
+server.keepAliveTimeout = day_in_ms;
